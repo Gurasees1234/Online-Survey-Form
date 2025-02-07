@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        form{
+            font-size: 20px;
+            
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color:white;          
+            width: 60%; 
+            margin: 0 auto;          
+            background-color: rgb(0,0,0,0.7);
+            border-radius: 25px ;
+            padding-top: 25px;
+            padding-left: 30px;
+        }
+        #button {
+            display: flex;
+           justify-content: center;
+           
+        }
+        .next,.back{
+            font-size: larger;
+            
+            padding: 15px 25px;
+            border: none;
+            border-radius: 20px;
+            margin: 5px 15px;
+        }
+        .back:hover,.next:hover{
+            transform: translateY(-10px);
+        }
+       
+        body{
+            background-image: url("https://sceneloc8.com/wp-content/uploads/2024/03/Vidhana-Soudha.png");
+           
+            background-size: cover;
+            justify-content: center;
+        }
+        .question,.option{
+            margin-left: 10px;
+            
+        }
+        .back{
+            background-color: rgb(250, 155, 47);
+        }
+        .next{
+            background-color: green;
+        }
+    </style>
+  
+    <title>Document</title>
+</head>
+<body>
+  <form action="">  
+    
+        <div class="question">6. On what basis do you assess a political candidate?</div>
+        <div class="option"> <input type="checkbox" id="1" name="6">
+        <label for="1">News on TV</label><br>
+        <input type="checkbox" id="2" name="6">
+        <label for="2">Articles in the newspaper</label><br>
+        <input type="checkbox" id="3" >
+        <label for="3">Attend events where the candidate is adressing the people</label><br>
+        <input type="checkbox" id="4" name="6">
+        <label for="4">I research all the channels before making my choice</label><br>
+        <input type="checkbox" id="5" name="6">
+        <label for="5">Number of fundraisers the candidate has done in your area</label><br>
+        <input type="checkbox" id="6" name="6">
+        <label for="6">The family upbringing of the candidate</label><br>
+        <input type="checkbox" id="7" name="6">
+        <label for="7">Other</label><br></div><br>
+
+        <div class="question">7. In your opinion, do you think gun control laws and regulations should be changed?</div>
+        <div class="option"> <input type="radio" id="8" name="7">
+        <label for="8">Yes</label><br>
+        <input type="radio" id="9" name="7">
+        <label for="9">No</label></div><br>
+       
+
+        
+        <div class="question">8. Do you think possession of guns should be allowed to everyone?</div>
+        <div class="option"> <input type="radio" id="10" name="8">
+        <label for="10">Yes</label><br>
+        <input type="radio" id="11" name="13">
+        <label for="11">No</label></div><br>
+
+        <div class="question">9. Do you think there should be stricter rules and regulations on the use of money in political campaigns?</div>
+       <div class="option"> <input type="radio" id="12" name="9">
+        <label for="12">Yes</label><br>
+        <input type="radio" id="13" name="9">
+        <label for="13">No</label><br>
+        <input type="radio" id="14" name="9">
+        <label for="14">Don't know</label></div><br>
+        
+
+        <div class="question">10. How do you describe yourself as?</div>
+       <div class="option"> <input type="radio" id="15" name="10">
+        <label for="15">Democrat</label><br>
+        <input type="radio" id="16" name="10">
+        <label for="16">Independent </label><br>
+        <input type="radio" id="17" name="10">
+        <label for="17">Republican </label><br>
+        <input type="radio" id="18" name="10">
+        <label for="18">Something else</label><br>
+        <input type="radio" id="19" name="10">
+        <label for="19">Don't know</label><br></div><br>
+        <div id="button">
+        <a href="2page.html"> <input type="button" value="Back" class="back"></a>
+          <a href="4page.html"> <input type="button" value="Next" class="next"></a>
+      
+        </div>
+</form>
+</body>
+</html>

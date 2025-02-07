@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Political Party Survey Results</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: whitesmoke;
+            /* background-size: cover;
+            background-position: center; */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            /* width:100%;
+            height: 100%; */
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            margin: 40px 0;
+        }
+        canvas {
+            max-width: 100%;
+            max-height: 100%;
+            width: 400px;
+            height: 400px;}
+        #pieChart {
+            width: 50% !important;
+            height: 400px !important;
+            margin: 0 auto;
+        }
+        #barChart {
+            width: 50% !important;
+            height: 500px !important;
+            margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+            #pieChart {
+                width: 90% ;
+                height: 300px !important;
+            }
+            #barChart {
+                width: 90% !important;
+                height: 350px !important;
+            }
+        }
+        .btn {
+            display: inline-block;
+            background-color: #2980b9;
+            color: white;
+            font-size: 1.2em;
+            padding: 10px 25px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn:hover {
+            background-color: #3498db;
+            transform: translateY(-3px);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Survey Results: Political Party Preferences in India</h1>
+
+        
+        <div class="chart-container">
+            <h2>Preferred Political Parties (Pie Chart)</h2>
+            <canvas id="pieChart"></canvas>
+        </div>
+
+ 
+        <div class="chart-container">
+            <h2>Preferred Political Parties (Bar Graph)</h2>
+            <canvas id="barChart"></canvas>
+        </div>
+        <a href="p1.html" class="btn">Return To Home</a>
+        <a href="https://www.indiatoday.in/elections" class="btn" target="_blank">See More Details</a>
+
+    </div>
+
+    <script>
+        const data = {
+            labels: ['BJP', 'Congress', 'AAP', 'TMC', 'SP', 'Other'],
+            datasets: [{
+                data: [40, 25, 15, 10, 5, 5],
+                backgroundColor: ['#FF5733', '#4285F4', '#FFC107', '#28A745', '#6F42C1', '#D3D3D3'],
+                hoverBackgroundColor: ['#FF6F4B', '#4D94F7', '#FFD34E', '#2C9B3B', '#9B63D1', '#E6E6E6'],
+            }]
+        };
+
+        const pieConfig = {
+            type: 'pie',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: "top",
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return tooltipItem.label + ": " + tooltipItem.raw + "%"; // Display percentage
+                            }
+                        }
+                    },
+                    
+                }
+            }
+        };
+        const barConfig = {
+            type: 'bar',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: 'Survey Responses (%)',
+                    data: data.datasets[0].data,
+                    backgroundColor: data.datasets[0].backgroundColor,
+                    borderColor: '#333',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 50, 
+                        ticks: {
+                            stepSize: 5,
+                        }
+                    }
+                }
+            }
+        };
+
+        const pieCtx = document.getElementById('pieChart').getContext('2d');
+        new Chart(pieCtx, pieConfig);
+
+        const barCtx = document.getElementById('barChart').getContext('2d');
+        new Chart(barCtx, barConfig);
+    </script>
+
+</body>
+</html>
